@@ -3,8 +3,8 @@
   position: relative;
   .fa-arrow-alt-circle-left {
     position: absolute;
-    bottom: -20px;
-    right: 50px;
+    bottom: 0px;
+    right: 10px;
     font-size: 50px;
     cursor: pointer;
     text-shadow: 1px 1px 3px rgb(48, 48, 48);
@@ -27,9 +27,11 @@
       font-size: 20px;
       color: white;
       cursor: pointer;
-      .active {
-        color: yellow;
-      }
+      transition: 0.2s;
+      text-shadow: 0 0 2px black;
+    }
+    .active {
+      color: rgb(255, 230, 0);
     }
   }
 }
