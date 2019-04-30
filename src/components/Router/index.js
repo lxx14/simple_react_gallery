@@ -11,7 +11,7 @@ export default function () {
       <Route exact path='/' component={Description} />
       <Route path='/gallery' component={Gallery} />
       <Route path='/contacts' component={Contacts} />
-      <Route path='/photo' component={SinglePagePhoto} />
+      <Route path='/photo/:id' component={SinglePagePhoto} />
     </Switch>
   )
 }

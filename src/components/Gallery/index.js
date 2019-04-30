@@ -17,7 +17,7 @@ class Gallery extends Component {
 
   render() {
     const photoArray = this.props.photosFromRedux.map((item)=> {
-      return <NavLink to ='/photo' key={item.id}><GalleryImages src={item.urls.thumb} alt={item.created_at} /></NavLink>
+      return  <GalleryImages key={item.id} id={item.id} src={item.urls.thumb} alt={item.created_at} />
     })
     return(
       <div className='photo-container'>

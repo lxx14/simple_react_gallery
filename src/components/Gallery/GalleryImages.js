@@ -1,8 +1,9 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const GalleryImages = (props) => {
   return(
-    <img src={props.src} alt={props.name} />
+    <NavLink to ={`/photo/${props.id}`}><img src={props.src} id={props.id} alt={props.name} /></NavLink>
   )
 }
 

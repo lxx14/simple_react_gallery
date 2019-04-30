@@ -1,7 +1,5 @@
 .single-page-photo {
-  h1 {
-    padding: 0 0 0 20px;
-  }
+  padding: 0 0 0 20px;
   position: relative;
   .fa-arrow-alt-circle-left {
     position: absolute;
@@ -15,5 +13,8 @@
     &:hover {
       text-shadow: none;
     }
+  }
+  img {
+    width: 250px;
   }
 }
