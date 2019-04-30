@@ -1,0 +1,19 @@
+.single-page-photo {
+  h1 {
+    padding: 0 0 0 20px;
+  }
+  position: relative;
+  .fa-arrow-alt-circle-left {
+    position: absolute;
+    bottom: -20px;
+    right: 50px;
+    font-size: 50px;
+    cursor: pointer;
+    text-shadow: 1px 1px 3px rgb(48, 48, 48);
+    transition: 0.2s;
+    color: black;
+    &:hover {
+      text-shadow: none;
+    }
+  }
+}
