@@ -1,6 +1,5 @@
 const initialState = {
-  photos: [],
-  favorite: []
+  photos: []
 }
 
 export default function(state = initialState, action) {

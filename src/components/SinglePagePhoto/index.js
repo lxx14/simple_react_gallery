@@ -14,7 +14,7 @@ class SinglePagePhoto extends Component {
     this.setState({
       value: !this.state.value
     })
-  }
+  };
 
   render() {
     return (
@@ -39,4 +39,11 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps)(SinglePagePhoto);
+const mapDispatchToProps = (dispatch) => ({
+    addToFavoriteRedux: () => dispatch({
+    type: "ADD_TO_FAVORITE", 
+    
+    })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SinglePagePhoto);
