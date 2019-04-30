@@ -14,7 +14,22 @@
       text-shadow: none;
     }
   }
-  img {
+  .img-wrapper {
     width: 250px;
+    position: relative;
+    img {
+      width: 100%;
+    }
+    .fa-star {
+      position: absolute;
+      top: 7px;
+      right: 7px;
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+      .active {
+        color: yellow;
+      }
+    }
   }
 }
