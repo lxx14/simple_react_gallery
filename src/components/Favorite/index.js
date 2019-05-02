@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import './style.scss';
 
 const Favorite = (props) => {
-  const allFavoritePhotos = props.favoritePhotos.map((item)=><img src={item.urls.thumb} alt='favoritePhoto'/>)
+  const allFavoritePhotos = props.favoritePhotos.map((item)=><img src={item.urls.thumb} key={item.id} alt='favoritePhoto'/>)
   return (
     <div className='favorite-images'>
       {allFavoritePhotos.length>0 ? allFavoritePhotos : <h2>Empty, nothing to show</h2>}
