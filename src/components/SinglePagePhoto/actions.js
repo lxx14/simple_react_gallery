@@ -1,0 +1,1 @@
+export const addToFavoriteReduxAction = (data) => ({type: 'ADD_TO_FAVORITE', data})

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { addToFavoriteReduxAction } from './actions';
 import './style.scss';
 
 class SinglePagePhoto extends Component {
@@ -46,10 +47,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    addToFavoriteRedux: (data) => dispatch({
-    type: "ADD_TO_FAVORITE",
-    data
-    })
+    addToFavoriteRedux: (data) => dispatch(addToFavoriteReduxAction(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SinglePagePhoto);
