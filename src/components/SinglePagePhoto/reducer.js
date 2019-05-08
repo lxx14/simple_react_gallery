@@ -3,5 +3,12 @@ const initialState = {
 }
 
 export default function(state = initialState, action) {
- return state;
+  switch(action.type) {
+    case "ADD_TO_FAVORITE": 
+    return {
+      ...state,
+      favoritePhotos: [...state.favoritePhotos, action.data]
+    }
+    default: return state;
+  }
 }

@@ -14,7 +14,9 @@ class SinglePagePhoto extends Component {
     this.setState({
       value: !this.state.value
     })
-    !this.state.value&&this.props.favoriteArr.push(this.props.singlePhoto); //its WRONG!!!!!!!!! BUT...its working))
+    const favoriteImg = {...this.props.singlePhoto};
+
+    !this.state.value&&this.props.addToFavoriteRedux(favoriteImg);
 
   };
 
@@ -43,7 +45,7 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({   //what to write here????....
+const mapDispatchToProps = (dispatch) => ({
     addToFavoriteRedux: (data) => dispatch({
     type: "ADD_TO_FAVORITE",
     data
