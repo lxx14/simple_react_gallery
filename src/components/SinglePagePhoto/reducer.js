@@ -15,6 +15,8 @@ export default function(state = initialState, action) {
       ...state,
       favoritePhotos: [...state.favoritePhotos]
     }
+    case "DELETE_IMG":
+    console.log(action.data);
     default: return state;
   }
 }

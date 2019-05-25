@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { deleteImgAction } from './actions';
 import './style.scss';
 
-const Favorite = (props) => {
-  if(props.favoritePhotos.length>0) {
-    const allFavoritePhotos = props.favoritePhotos.map((item)=><img src={item.urls.thumb} key={item.id} alt='favoritePhoto'/>)
-  } else {
-    const allFavoritePhotos = <h2>Empty, nothing to show</h2>
+class Favorite extends Component {
+
+  deleteImgHandler = (e) => {
+    this.props.deleteImg(e.target);
   }
-  return (
-    <div className='favorite-images'>
-      {allFavoritePhotos}
-    </div>
-  )
+
+  render() {
+    if (this.props.favoritePhotos.length > 0) {
+      const allFavoritePhotos = this.props.favoritePhotos.map((item) => <img id={item.id} src={item.urls.thumb} key={item.id} alt='favoritePhoto' onClick={this.deleteImgHandler}/>)
+    } else {
+      const allFavoritePhotos = <h2>Empty, nothing to show</h2>
+    }
+    return (
+      <div className='favorite-images'>
+        {allFavoritePhotos}
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = (state) => {
@@ -22,4 +30,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Favorite);
+const mapDispatchToProps = {
+  deleteImg: deleteImgAction
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Favorite);
