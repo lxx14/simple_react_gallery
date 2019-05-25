@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addToFavoriteReduxAction } from './actions';
+import { deleteFromFavoriteReduxAction } from './actions';
 import './style.scss';
 
 class SinglePagePhoto extends Component {
@@ -13,15 +14,18 @@ class SinglePagePhoto extends Component {
   }
   addToFavorite = () => {
     this.setState({
-      value: !this.state.value
+      value: !this.state.value,
     })
     const favoriteImg = {...this.props.singlePhoto};
 
     !this.state.value&&this.props.addToFavoriteRedux(favoriteImg);
 
+    this.state.value&&this.props.deleteFavoriteRedux(favoriteImg);
+
   };
 
   render() {
+    console.log(this.props.singlePhoto.liked_by_user)
     return (
       <div className='single-page-photo'>
         <h1>Author: {this.props.singlePhoto.user.name}</h1>
@@ -46,8 +50,9 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    addToFavoriteRedux: (data) => dispatch(addToFavoriteReduxAction(data))
-})
+const mapDispatchToProps = {
+    addToFavoriteRedux: addToFavoriteReduxAction,
+    deleteFavoriteRedux: deleteFromFavoriteReduxAction
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(SinglePagePhoto);

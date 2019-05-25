@@ -9,6 +9,12 @@ export default function(state = initialState, action) {
       ...state,
       favoritePhotos: [...state.favoritePhotos, action.data]
     }
+    case "DELETE_FROM_FAVORITE":
+      state.favoritePhotos.pop()
+      return {
+      ...state,
+      favoritePhotos: [...state.favoritePhotos]
+    }
     default: return state;
   }
 }
