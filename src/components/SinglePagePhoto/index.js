@@ -25,7 +25,6 @@ class SinglePagePhoto extends Component {
   };
 
   render() {
-    console.log(this.props.singlePhoto.liked_by_user)
     return (
       <div className='single-page-photo'>
         <h1>Author: {this.props.singlePhoto.user.name}</h1>
