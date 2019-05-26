@@ -12,7 +12,7 @@ class Gallery extends Component {
   }
 
   componentDidMount() {
-    getPhotosFromServer().then((photos)=>{this.props.setPhotos(photos)})
+    getPhotosFromServer(1, 30).then((photos)=>{this.props.setPhotos(photos)});
   }
 
   render() {
