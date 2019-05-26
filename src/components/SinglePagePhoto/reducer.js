@@ -16,17 +16,17 @@ export default function (state = initialState, action) {
         favoritePhotos: [...state.favoritePhotos]
       }
     case "DELETE_IMG":
-      console.log(action.data.id);
-      console.log(state.favoritePhotos);
-      for (var i = 0; i < state.favoritePhotos.length; i++) {
-        if (state.favoritePhotos[i].id === action.data.id) {
-          console.log(`bingo! in ${i} place`);
-          state.favoritePhotos.splice(i, 1);
+      let question = confirm(`do you wanna delete image № ${action.data.id} from favorite?`);
+      if (question) {
+        for (var i = 0; i < state.favoritePhotos.length; i++) {
+          if (state.favoritePhotos[i].id === action.data.id) {
+            state.favoritePhotos.splice(i, 1);
+          }
         }
-      }
-      return {
-        ...state,
-        favoritePhotos: [...state.favoritePhotos]
+        return {
+          ...state,
+          favoritePhotos: [...state.favoritePhotos]
+        }
       }
     default: return state;
   }
