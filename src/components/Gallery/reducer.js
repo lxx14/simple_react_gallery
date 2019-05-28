@@ -1,5 +1,6 @@
 const initialState = {
-  photos: []
+  photos: [],
+  isLoading: false
 }
 
 export default function(state = initialState, action) {
