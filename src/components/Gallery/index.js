@@ -3,7 +3,7 @@ import GalleryImages from './GalleryImages';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getPhotosFromServer } from './service';
-import { setPhotoAction } from './actions';
+import { fetchPhotosAction } from './actions';
 import './style.scss';
 
 class Gallery extends Component {
@@ -12,7 +12,7 @@ class Gallery extends Component {
   }
 
   componentDidMount() {
-    getPhotosFromServer(1, 30).then((photos)=>{this.props.setPhotos(photos)});
+    this.props.setPhotos()
   }
 
   render() {
@@ -32,7 +32,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  setPhotos: setPhotoAction
+  setPhotos: fetchPhotosAction
 }
 
 
