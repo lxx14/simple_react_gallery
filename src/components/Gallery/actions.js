@@ -23,10 +23,8 @@ export const fetchPhotosAction = () => (dispatch) => {  // его передае
 
   getPhotosFromServer(1, 25)
     .then(responce => {
-
-      setTimeout(()=>{dispatch(stopFethPhotosActionType())}, 400) ; // прекращаем анимацию загрузки после того, как выполнился успешный 
       return responce.json()
       })
     .then(photos =>dispatch(successFetchPhotosActionType(photos)))
-
+    .then(photos=>dispatch(stopFethPhotosActionType()))
 }
