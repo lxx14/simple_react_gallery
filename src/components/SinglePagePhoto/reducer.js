@@ -18,14 +18,9 @@ export default function (state = initialState, action) {
     case "DELETE_IMG":
       let question = confirm(`do you wanna delete image № ${action.data.id} from favorite?`);
       if (question) {
-        for (var i = 0; i < state.favoritePhotos.length; i++) {
-          if (state.favoritePhotos[i].id === action.data.id) {
-            state.favoritePhotos.splice(i, 1);
-          }
-        }
         return {
           ...state,
-          favoritePhotos: [...state.favoritePhotos]
+          favoritePhotos: state.favoritePhotos.filter(item=>item.id !== action.data.id)
         }
       }
     default: return state;
