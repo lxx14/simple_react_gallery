@@ -25,5 +25,5 @@ export const fetchPhotosAction = () => (dispatch) => {  // его передае
 
   setTimeout(() => {
     dispatch(stopFethPhotosActionType()); // прекращаем анимацию загрузки после того, как выполнился успешный 
-  }, 1000);
+  }, 500);
 }
