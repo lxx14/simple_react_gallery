@@ -1,6 +1,7 @@
 const initialState = {
   photos: [],
-  isLoading: false
+  isLoading: false,
+  failFetch: false
 }
 
 export default function (state = initialState, action) {
@@ -19,6 +20,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         isLoading: false
+      }
+    case "FAIL_FETCH_PHOTOS":
+      return {
+        ...state,
+        failFetch: true
       }
     default: return state;
   }

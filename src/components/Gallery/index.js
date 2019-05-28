@@ -21,7 +21,8 @@ class Gallery extends Component {
     })
     return(
       <div className='photo-container'>
-      {this.props.isLoading&&<p>ЗАГРУЗИЩЕ!!!</p>}
+      {this.props.isLoading&&<p className='loading'>ЗАГРУЗИЩЕ!!!</p>}
+      {this.props.failFetch&&<p>Sorry, but server is not responding</p>}
       {photoArray}
       </div>
     )
@@ -30,7 +31,8 @@ class Gallery extends Component {
 
 const mapStateToProps = (state) => ({
   photosFromRedux: state.gallery.photos,
-  isLoading: state.gallery.isLoading
+  isLoading: state.gallery.isLoading,
+  failFetch: state.gallery.failFetch
 });
 
 const mapDispatchToProps = {
