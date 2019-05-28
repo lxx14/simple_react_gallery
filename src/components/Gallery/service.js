@@ -5,5 +5,5 @@ export const getPhotosFromServer = (page=1, per_page=20) => { //указывае
 
   const url = `${base_url}photos/?client_id=${client_id}&&page=${page}&per_page=${per_page}`; //собираем нашу ссылку в кучу
 
-  return fetch(url).then((responce) => {return responce.json()});
+  return fetch(url);
 }

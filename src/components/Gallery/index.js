@@ -16,23 +16,28 @@ class Gallery extends Component {
   }
 
   render() {
-    const photoArray = this.props.photosFromRedux.map((item)=> {
-      return  <GalleryImages key={item.id} id={item.id} src={item.urls.thumb} alt={item.created_at} />
+    const photoArray = this.props.photosFromRedux.map((item) => {
+      return <GalleryImages key={item.id} id={item.id} src={item.urls.thumb} alt={item.created_at} />
     })
-    return(
-      <div className='photo-container'>
-      {this.props.isLoading&&<p className='loading'>ЗАГРУЗИЩЕ!!!</p>}
-      {this.props.failFetch&&<p>Sorry, but server is not responding</p>}
-      {photoArray}
-      </div>
-    )
+    if (this.props.isLoading) {
+      return (
+        <div className='photo-container'>
+          <p className='loading'>ЗАГРУЗКА...</p>
+        </div>
+      )
+    } else {
+      return (
+        <div className='photo-container'>
+          {photoArray}
+        </div>
+      )
+    }
   }
 }
 
 const mapStateToProps = (state) => ({
   photosFromRedux: state.gallery.photos,
-  isLoading: state.gallery.isLoading,
-  failFetch: state.gallery.failFetch
+  isLoading: state.gallery.isLoading
 });
 
 const mapDispatchToProps = {

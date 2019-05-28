@@ -13,17 +13,20 @@ export const stopFethPhotosActionType = () => ({
   type: "STOP_FETCH_PHOTOS"
 })
 
-export const failFethPhotosActionType = () => {
+export const failFethPhotosActionType = () => ({
   type: "FAIL_FETCH_PHOTOS"
-}
+})
 
 export const fetchPhotosAction = () => (dispatch) => {  // его передаем в наш компонент, в котором через mapStateToProps присваиваем в ключ, который потом в последствии в компоненте выводим в componentDidMount
 
-  dispatch(startFethPhotosActionType())
+  dispatch(startFethPhotosActionType());
 
-  getPhotosFromServer(1, 25).then(photos => dispatch(successFetchPhotosActionType(photos))).catch(error => dispatch(failFethPhotosActionType()));
+  getPhotosFromServer(1, 25)
+    .then(responce => {
 
-  setTimeout(() => {
-    dispatch(stopFethPhotosActionType()); // прекращаем анимацию загрузки после того, как выполнился успешный 
-  }, 500);
+      setTimeout(()=>{dispatch(stopFethPhotosActionType())}, 400) ; // прекращаем анимацию загрузки после того, как выполнился успешный 
+      return responce.json()
+      })
+    .then(photos =>dispatch(successFetchPhotosActionType(photos)))
+
 }
